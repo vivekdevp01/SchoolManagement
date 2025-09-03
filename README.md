@@ -70,7 +70,3 @@ src/
 - Centralized error handling
 - Sequelize ORM for database management
 - Ready for adding authentication, validation, and more
-
-## Contributing
-
-Feel free to fork, modify, and contribute to this project!
