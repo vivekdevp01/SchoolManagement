@@ -1,48 +1,76 @@
-This is a base node js project template, which anyone can use as it has been prepared, by keeping some of the most important code principles and project management recommendations. Feel free to change anything. 
 
+# School Management System
 
-`src` -> Inside the src folder all the actual source code regarding the project will reside, this will not include any kind of tests. (You might want to make separate tests folder)
+A modular Node.js project template for managing school data, built with best practices in mind. This project uses Express.js, Sequelize ORM, and a clean architecture to separate concerns and ensure maintainability.
 
-Lets take a look inside the `src` folder
+## Project Structure
 
- - `config` -> In this folder anything and everything regarding any configurations or setup of a library or module will be done. For example: setting up `dotenv` so that we can use the environment variables anywhere in a cleaner fashion, this is done in the `server-config.js`. One more example can be to setup you logging library that can help you to prepare meaningful logs, so configuration for this library should also be done here. 
+```
+src/
+  config/         # Configuration files (DB, server, logger)
+  controllers/    # Handle incoming requests, call services, format responses
+  errors/         # Custom error classes
+  middlewares/    # Request validation, authentication, etc.
+  migrations/     # Sequelize migration files
+  models/         # Sequelize models
+  repositories/   # Data access logic (ORM/queries)
+  routes/         # API route definitions
+  seeders/        # Sequelize seed data
+  services/       # Business logic
+  utils/          # Helper functions and utilities
+```
 
- - `routes` -> In the routes folder, we register a route and the corresponding middleware and controllers to it. 
+## Getting Started
 
- - `middlewares` -> they are just going to intercept the incoming requests where we can write our validators, authenticators etc. 
+### Prerequisites
 
- - `controllers` -> they are kind of the last middlewares as post them you call you business layer to execute the budiness logic. In controllers we just receive the incoming requests and data and then pass it to the business layer, and once business layer returns an output, we structure the API response in controllers and send the output. 
+- Node.js (v14+ recommended)
+- npm
+- A supported SQL database (e.g., MySQL, MariaDB, PostgreSQL)
 
- - `repositories` -> this folder contains all the logic using which we interact the DB by writing queries, all the raw queries or ORM queries will go here.
+### Setup
 
- - `services` -> contains the buiness logic and interacts with repositories for data from the database
-
- - `utils` -> contains helper methods, error classes etc.
-
-### Setup the project
-
- - Download this template from github and open it in your favourite text editor. 
- - Go inside the folder path and execute the following command:
+1. **Install dependencies:**
   ```
   npm install
   ```
- - In the root directory create a `.env` file and add the following env variables
-    ```
-        PORT=<port number of your choice>
-    ```
-    ex: 
-    ```
-        PORT=3000
-    ```
- - go inside the `src` folder and execute the following command:
-    ```
-      npx sequelize init
-    ```
- - By executing the above command you will get migrations and seeders folder along with a config.json inside the config folder. 
- - If you're setting up your development environment, then write the username of your db, password of your db and in dialect mention whatever db you are using for ex: mysql, mariadb etc
- - If you're setting up test or prod environment, make sure you also replace the host with the hosted db url.
 
- - To run the server execute
- ```
- npm run dev
- ```
+2. **Environment variables:**
+  Create a `.env` file in the root directory:
+  ```
+  PORT=3000
+  ```
+
+3. **Database configuration:**
+  - Edit `src/config/config.json` with your DB credentials and dialect.
+
+4. **Initialize Sequelize (if needed):**
+  ```
+  npx sequelize init
+  ```
+
+5. **Run migrations and seeders (if any):**
+  ```
+  npx sequelize db:migrate
+  npx sequelize db:seed:all
+  ```
+
+6. **Start the development server:**
+  ```
+  npm run dev
+  ```
+
+## Scripts
+
+- `npm run dev` – Start the server in development mode with auto-reload.
+
+## Key Features
+
+- Modular folder structure for scalability
+- Centralized error handling
+- Sequelize ORM for database management
+- Ready for adding authentication, validation, and more
+
+## Contributing
+
+Feel free to fork, modify, and contribute to this project!
