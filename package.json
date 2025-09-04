@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npx nodemon src/index.js",
     "start": "node src/index.js",
-    "migrate": "sequelize db:migrate --env production --url $DATABASE_URL --migrations-path migrations",
+    "migrate": "sequelize db:migrate --url $DATABASE_URL --migrations-path src/migrations",
     "start:migrate": "npm run migrate && npm run start"
   },
   "author": "Sanket",
