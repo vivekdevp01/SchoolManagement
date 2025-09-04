@@ -9,7 +9,7 @@
     "migrate": "sequelize db:migrate --url $DATABASE_URL --migrations-path src/migrations",
     "start:migrate": "npm run migrate && npm run start"
   },
-  "author": "Sanket",
+  "author": "Vivek",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.3",
